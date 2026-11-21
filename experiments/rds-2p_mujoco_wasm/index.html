@@ -156,6 +156,11 @@
     })();
   </script>
   <script type="module" src="./src/main.js"></script>
+  <script type="module">
+    if (new URLSearchParams(location.search).has("zenoh")) {
+      import("./tools/zenoh/dist/receiver.js").catch(error => console.error("[RDS2P] Zenoh", error));
+    }
+  </script>
   <script type="module" src="./src/vision/bootstrap.js"></script>
 </body>
 </html>
